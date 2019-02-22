@@ -1,23 +1,51 @@
 //Business Logic
-$(document).ready(function() {
-  $("form.test").submit(function(event) {
-    var numbers = ["1","2","3","4","5","6","7","8","9","10","11","12"];
-    var score = 0;
-    numbers.forEach(function(number) {
-      if (true) {
+//Variable declaration
+var numbers = ["1","2","3","4","5","6","7","8","9","10","11","12"];
+var answered = 0;
+var blank = 0;
+var score = 0;
+var answer = 0;
 
-      } else {
-
+//Checks to see how many questions were attempted and how many left blank
+var checkAll = function() {
+    for( i = 0; i < numbers.length; i++) {
+      if($("input:radio[name=question" + numbers[i] + "]").is(":checked")) {
+        answered = answered + 1;
       }
-      var answer = parseInt($("input:radio[name=question" + number + "]:checked").val());
-      score =  score + answer;
-    });
-     alert(score);
-    event.preventDefault();
-  });
-});
+      else {
+        blank = blank + 1;
+      }
+    }
+};
+
+//Adds score when radio selected, else doesn't
+var add = function() {
+  if(answer == 0 || answer == 1 ){
+    score = score + answer;
+  }
+  else{
+    score = score + 0;
+  }
+};
+
+
+
 
 //User Interface Logic
 $(document).ready(function() {
-  $()
+  $("form.test").submit(function(event) {
+    event.preventDefault();
+//Collects input from user
+    numbers.forEach(function(number){
+    answer = parseInt($("input:radio[name=question" + number + "]:checked").val());
+    add();
+    });
+//Runs checkAll function
+    checkAll();
+//Returns all final calculations: attempted questions, blanks and score
+    var results = function() {
+      alert("You scored " + score + " out of 12. You left " + blank + " questions blank");
+    }
+    results();
+  });
 });
