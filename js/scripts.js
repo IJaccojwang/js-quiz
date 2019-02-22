@@ -4,13 +4,15 @@ $(document).ready(function() {
     var numbers = ["1","2","3","4","5","6","7","8","9","10","11","12"];
     var score = 0;
     numbers.forEach(function(number) {
+      if (true) {
+
+      } else {
+
+      }
       var answer = parseInt($("input:radio[name=question" + number + "]:checked").val());
       score =  score + answer;
     });
-      alert(score);
-
-
-
+     alert(score);
     event.preventDefault();
   });
 });
