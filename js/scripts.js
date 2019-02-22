@@ -5,7 +5,6 @@ var answered = 0;
 var blank = 0;
 var score = 0;
 var answer = 0;
-
 //Checks to see how many questions were attempted and how many left blank
 var checkAll = function() {
     for( i = 0; i < numbers.length; i++) {
@@ -17,7 +16,6 @@ var checkAll = function() {
       }
     }
 };
-
 //Adds score when radio selected, else doesn't
 var add = function() {
   if(answer == 0 || answer == 1 ){
@@ -32,16 +30,18 @@ var add = function() {
 
 //User Interface Logic
 $(document).ready(function() {
-//Display each next question
+//(Next button) - display each next question
 function loop() {
   var questions = ["first","second","third","fourth","fifth","sixth","seventh","eigth","ninth","tenth","eleventh","twelfth"];
     var i = 0;
   $('#start').click(function () {
     $("." + questions[i]).show();
+    $("." + questions[i-1]).hide();
     i = i + 1 ;
     });
 }
 loop();
+//(Submit)
   $("form.test").submit(function(event) {
     event.preventDefault();
 //Collects input from user
