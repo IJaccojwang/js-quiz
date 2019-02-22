@@ -7,9 +7,24 @@
     <title>JavaScript Quiz</title>
   </head>
   <body>
-    <button type="button" name="button">START</button>
     <div class="container">
-      <form class="test" action="index.html" method="post">
+      <div class="container">
+        <nav class="navbar fixed-bottom navbar-dark bg-dark">
+          <a class="navbar-brand" href="#">JS Quiz</a>
+          <a class="btn btn-primary " href="#form" role="button">Start</a>
+          <button class="btn btn-primary" type="button" name="button" id="start">Next</button>
+        </nav>
+      </div>
+
+      <div class="jumbotron jumbotron-fluid">
+        <div class="jumbotron">
+          <h1 class="display-4">Hello, world!</h1>
+          <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+          <hr class="my-4">
+          <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        </div>
+      </div>
+      <form class="test" action="index.html" method="post" id="form">
 <!-- Question 1 -->
         <div class="first">
           <p>JavaScript is a:</p>
@@ -346,8 +361,8 @@
             </label>
           </div>
         </div>
-
     </div>
+
         <button type="submit" class="btn">Submit</button>
       </form>
     </div>
