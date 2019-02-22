@@ -30,9 +30,18 @@ var add = function() {
 
 
 
-
 //User Interface Logic
 $(document).ready(function() {
+//Display each next question
+function loop() {
+  var questions = ["first","second","third","fourth","fifth","sixth","seventh","eigth","ninth","tenth","eleventh","twelfth"];
+    var i = 0;
+  $('#start').click(function () {
+    $("." + questions[i]).show();
+    i = i + 1 ;
+    });
+}
+loop();
   $("form.test").submit(function(event) {
     event.preventDefault();
 //Collects input from user
