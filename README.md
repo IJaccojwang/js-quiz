@@ -2,7 +2,7 @@
 #### This application provides the user with a quiz on Javascript concepts. Checks the score and gives the user comments based on these scores., 02/2019
 #### By **Ian Jaccojwang**
 ## Description
-The user loads the website and gets instructions on how to answer the questions. One going through each question and providing an answer, the user gets feedback, namely:
+The user loads the website and gets instructions on how to answer the questions. On going through each question and providing an answer, the user gets feedback, namely:
 * Questions answered
 * Questions left blank
 * Raw score
@@ -31,7 +31,7 @@ Bootsrtap and Jquery were used as well.
 
 | Behaviour                                | Sample input         | Expected output                             |
 |------------------------------------------|----------------------|---------------------------------------------|
-| Accepts null values                      | Empty(no input)      | Counted as a blank question(not attemted)   |
+| Accepts null values                      | Empty(no input)      | Counted as a blank question(not attempted)   |
 | Shows one question at a time             | (Next button) Click  | Takes user to the next question/ section    |
 | Gives feedback based on the user's score | (Score) Above 80%    | Excellently passed.                         |
 |                                          | (Score) 50% to 80%   | Fairly passed, Consider retake to improve.  |
