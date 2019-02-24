@@ -28,6 +28,7 @@ var add = function() {
 
 
 
+
 //User Interface Logic
 $(document).ready(function() {
 //(Next button) - display each next question
@@ -48,13 +49,29 @@ loop();
     numbers.forEach(function(number){
     answer = parseInt($("input:radio[name=question" + number + "]:checked").val());
     add();
+    alert("Hi");
     });
 //Runs checkAll function
-    checkAll();
+  checkAll();
+//Runs rating function
+  rating();
 //Returns all final calculations: attempted questions, blanks and score
-    var results = function() {
-      alert("You scored " + score + " out of 12. You left " + blank + " questions blank");
-    }
-    results();
+  results();
   });
 });
+
+// var results = function() {
+//   if((score/12)  >= (8/10)) {
+//     var verdict = "You scored " + score + " out of 12. You left " + blank + " questions blank". "This is"
+//     return verdict;
+//   }
+//   else if((score/12)  < (5/10)) {
+//     var verdict = "You scored " + score + " out of 12. You left " + blank + " questions blank". "This is " + percent + ". You " + verdict;
+//     return verdict;
+//   }
+//   else {
+//     var verdict = "You scored " + score + " out of 12. You left " + blank + " questions blank". "This is " + percent + ". You " + verdict;
+//     return verdict;
+//   }
+//   $(".output").text(result)
+// }
