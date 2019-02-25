@@ -34,18 +34,18 @@ var per = function() {
   percentage = Math.round(score/12*100);
 };
 //Generates final comments
-  var result = function() {
-    if(percentage  >= 80) {
-      verdict = "This is excellent."
-      advice = "No need to retake the test."
-    }
-    else if(percentage >= 50 && percentage  < 80) {
-      verdict = "This is fairly good"
-      advice = "You may retake the test to imptove your score."
-    }
-    else {
-      verdict = "This is a poor score."
-      advice = "It is advisable that you retake the test."
+var result = function() {
+  if(percentage >= 80) {
+    verdict = "This is excellent."
+    advice = "No need to retake the test."
+  }
+  else if(percentage >= 50 && percentage < 80) {
+    verdict = "This is fairly good."
+    advice = "You may retake the test to imptove your score."
+  }
+  else {
+    verdict = "This is a poor score."
+    advice = "It is advisable that you retake the test."
     }
 };
 
@@ -54,12 +54,22 @@ var per = function() {
 $(document).ready(function() {
   function loop() {
     var questions = ["first","second","third","fourth","fifth","sixth","seventh","eigth","ninth","tenth","eleventh","twelfth"];
-      var i = 0;
-    $('#start').click(function () {
+    var i = 0;
+    $('#next').click(function () {
       $("." + questions[i]).show();
       $("." + questions[i-1]).hide();
       i = i + 1 ;
       });
+    $('#previous').click(function () {
+      $("." + questions[i-1]).show();
+      $("." + questions[i]).hide();
+      i = i - 1 ;
+      });
+    $('#view').click(function() {
+      questions.forEach(function(question) {
+        $('.' + question).show();
+      });
+    });
   }
   loop();
   $("#form-container").submit(function(event) {
@@ -70,8 +80,8 @@ $(document).ready(function() {
     add();
     });
     checkAll();
-    result();
     per();
+    result();
     $("#score").text(score + "/12" + " - " + percentage + "%");
     $("#attempt").text("You attempted " + answered + " question(s) and left " + blank + " blanks.");
     $("#final").text("You scored " + score + " out of 12. " + verdict + " " + advice);
