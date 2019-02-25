@@ -5,6 +5,8 @@ var answered = 0;
 var blank = 0;
 var score = 0;
 var answer = 0;
+var verdict = "";
+var advice = "";
 //Checks to see how many questions were attempted and how many left blank
 var checkAll = function() {
     for( i = 0; i < numbers.length; i++) {
@@ -26,6 +28,20 @@ var add = function() {
   }
 };
 
+var result = function() {
+  if((score/12)  >= (8/10)) {
+    verdict = "This is excellent."
+    advice = "No need to retake the test."
+  }
+  else if((score/12) >= (5/10) && (score/12)  < (8/10)) {
+    verdict = "This is fairly good"
+    advice = "You may retake the test to imptove your score."
+  }
+  else {
+    verdict = "This is a poor score."
+    advice = "It is advisable that you retake the test."
+  }
+};
 
 
 
@@ -43,35 +59,17 @@ function loop() {
 }
 loop();
 //(Submit)
-  $("form.test").submit(function(event) {
+  $("#form-container").submit(function(event) {
     event.preventDefault();
 //Collects input from user
     numbers.forEach(function(number){
     answer = parseInt($("input:radio[name=question" + number + "]:checked").val());
     add();
-    alert("Hi");
     });
-//Runs checkAll function
   checkAll();
-//Runs rating function
-  rating();
-//Returns all final calculations: attempted questions, blanks and score
-  results();
+  //Returns all final calculations: attempted questions, blanks and score
+  result();
+  alert("You scored " + score + " out of 12" + verdict + advice);
+  //   $("#output").text(verdict);
   });
 });
-
-// var results = function() {
-//   if((score/12)  >= (8/10)) {
-//     var verdict = "You scored " + score + " out of 12. You left " + blank + " questions blank". "This is"
-//     return verdict;
-//   }
-//   else if((score/12)  < (5/10)) {
-//     var verdict = "You scored " + score + " out of 12. You left " + blank + " questions blank". "This is " + percent + ". You " + verdict;
-//     return verdict;
-//   }
-//   else {
-//     var verdict = "You scored " + score + " out of 12. You left " + blank + " questions blank". "This is " + percent + ". You " + verdict;
-//     return verdict;
-//   }
-//   $(".output").text(result)
-// }
